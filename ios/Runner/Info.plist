@@ -43,6 +43,10 @@
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>$(PROJECT_NAME) requires access to media library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Our app needs microphone access for voice chat features.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Our app requires access to your photo library to let you select pictures to upload.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -53,10 +57,6 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Our app requires access to your photo library to let you select pictures to upload.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Our app needs microphone access for voice chat features.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
@@ -72,6 +72,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
 </dict>
 </plist>

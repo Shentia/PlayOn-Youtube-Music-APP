@@ -267,10 +267,10 @@ class DownloadsSearch extends SearchDelegate {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  DownloadButton(
-                    data: suggestionList[index] as Map,
-                    icon: 'download',
-                  ),
+                  // DownloadButton(
+                  //   data: suggestionList[index] as Map,
+                  //   icon: 'download',
+                  // ),
                   SongTileTrailingMenu(
                     data: suggestionList[index] as Map,
                     isPlaylist: true,

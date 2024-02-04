@@ -784,10 +784,10 @@ class _SongsTabState extends State<SongsTab>
                                   mediaItem: null,
                                   data: widget.songs[index] as Map,
                                 ),
-                              DownloadButton(
-                                data: widget.songs[index] as Map,
-                                icon: 'download',
-                              ),
+                              // DownloadButton(
+                              //   data: widget.songs[index] as Map,
+                              //   icon: 'download',
+                              // ),
                               SongTileTrailingMenu(
                                 data: widget.songs[index] as Map,
                                 isPlaylist: true,

@@ -59,6 +59,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   @override
   final BehaviorSubject<double> speed = BehaviorSubject.seeded(1.0);
   final _mediaItemExpando = Expando<MediaItem>();
+  late MediaItem _currentMediaItem;
 
   Stream<List<IndexedAudioSource>> get _effectiveSequence => Rx.combineLatest3<
               List<IndexedAudioSource>?,
@@ -174,13 +175,15 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
     resetOnSkip =
         Hive.box('settings').get('resetOnSkip', defaultValue: false) as bool;
     cacheSong =
-        Hive.box('settings').get('cacheSong', defaultValue: true) as bool;
+        Hive.box('settings').get('cacheSong', defaultValue: false) as bool;
     recommend =
         Hive.box('settings').get('autoplay', defaultValue: true) as bool;
     loadStart =
         Hive.box('settings').get('loadStart', defaultValue: true) as bool;
 
     mediaItem.whereType<MediaItem>().listen((item) {
+      _currentMediaItem = item;
+
       if (count != null) {
         count = count! - 1;
         if (count! <= 0) {
@@ -266,6 +269,24 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
         _player!.seek(Duration.zero, index: 0);
       }
     });
+    //For autochanging the song from Youtube and is an ios or mac
+    if (Platform.isIOS || Platform.isMacOS) {
+      _player!.positionStream.listen((position) {
+        final itemIndex =
+            queue.value.indexWhere((item) => item.id == _currentMediaItem.id);
+        if (itemIndex != -1) {
+          final item = queue.value[itemIndex];
+          if (item.genre == 'YouTube' && position >= item.duration!) {
+            if (itemIndex + 1 == queue.value.length) {
+              _player!.pause();
+              _player!.seek(Duration.zero, index: 0);
+            } else {
+              skipToNext();
+            }
+          }
+        }
+      });
+    }
     // Broadcast the current queue.
     _effectiveSequence
         .map(
@@ -367,6 +388,9 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
 
   Future<void> refreshLink(Map newData) async {
     Logger.root.info('player | received new link for ${newData['title']}');
+    if (newData['url'] == null) {
+      return;
+    }
     final MediaItem newItem = MediaItemConverter.mapToMediaItem(newData);
     // final String? boxName = mediaItem.extras!['playlistBox']?.toString();
     // if (boxName != null) {
@@ -548,7 +572,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
         ? preferredWifiQuality
         : preferredMobileQuality;
     cacheSong =
-        Hive.box('settings').get('cacheSong', defaultValue: true) as bool;
+        Hive.box('settings').get('cacheSong', defaultValue: false) as bool;
     useDown = Hive.box('settings').get('useDown', defaultValue: true) as bool;
     return mediaItems.map(_itemToSource).whereType<AudioSource>().toList();
   }
@@ -999,7 +1023,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   }
 
   void _playbackError(err) {
-    Logger.root.severe('Error from audioservice: ${err.code}', err);
+    Logger.root.severe('Playback Error from audioservice: ${err.code}', err);
     if (err is PlatformException &&
         err.code == 'abort' &&
         err.message == 'Connection aborted') return;

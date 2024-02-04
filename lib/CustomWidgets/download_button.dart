@@ -177,74 +177,74 @@ class _MultiDownloadButtonState extends State<MultiDownloadButton> {
     if (widget.data.isEmpty) {
       return const SizedBox();
     }
-    return SizedBox(
+    return const SizedBox(
       width: 50,
       height: 50,
-      child: Center(
-        child: (down.lastDownloadId == widget.data.last['id'])
-            ? IconButton(
-                icon: const Icon(
-                  Icons.download_done_rounded,
-                ),
-                color: Theme.of(context).colorScheme.secondary,
-                iconSize: 25.0,
-                tooltip: AppLocalizations.of(context)!.downDone,
-                onPressed: () {},
-              )
-            : down.progress == 0
-                ? Center(
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.download_rounded,
-                      ),
-                      iconSize: 25.0,
-                      tooltip: AppLocalizations.of(context)!.down,
-                      onPressed: () async {
-                        for (final items in widget.data) {
-                          down.prepareDownload(
-                            context,
-                            items as Map,
-                            createFolder: true,
-                            folderName: widget.playlistName,
-                          );
-                          await _waitUntilDone(items['id'].toString());
-                          setState(() {
-                            done++;
-                          });
-                        }
-                      },
-                    ),
-                  )
-                : Stack(
-                    children: [
-                      Center(
-                        child: Text(
-                          down.progress == null
-                              ? '0%'
-                              : '${(100 * down.progress!).round()}%',
-                        ),
-                      ),
-                      Center(
-                        child: SizedBox(
-                          height: 35,
-                          width: 35,
-                          child: CircularProgressIndicator(
-                            value: down.progress == 1 ? null : down.progress,
-                          ),
-                        ),
-                      ),
-                      Center(
-                        child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: CircularProgressIndicator(
-                            value: done / widget.data.length,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-      ),
+      // child: Center(
+      //   child: (down.lastDownloadId == widget.data.last['id'])
+      //       ? IconButton(
+      //           icon: const Icon(
+      //             Icons.download_done_rounded,
+      //           ),
+      //           color: Theme.of(context).colorScheme.secondary,
+      //           iconSize: 25.0,
+      //           tooltip: AppLocalizations.of(context)!.downDone,
+      //           onPressed: () {},
+      //         )
+      //       : down.progress == 0
+      //           ? Center(
+      //               child: IconButton(
+      //                 icon: const Icon(
+      //                   Icons.download_rounded,
+      //                 ),
+      //                 iconSize: 25.0,
+      //                 tooltip: AppLocalizations.of(context)!.down,
+      //                 onPressed: () async {
+      //                   for (final items in widget.data) {
+      //                     down.prepareDownload(
+      //                       context,
+      //                       items as Map,
+      //                       createFolder: true,
+      //                       folderName: widget.playlistName,
+      //                     );
+      //                     await _waitUntilDone(items['id'].toString());
+      //                     setState(() {
+      //                       done++;
+      //                     });
+      //                   }
+      //                 },
+      //               ),
+      //             )
+      //           : Stack(
+      //               children: [
+      //                 Center(
+      //                   child: Text(
+      //                     down.progress == null
+      //                         ? '0%'
+      //                         : '${(100 * down.progress!).round()}%',
+      //                   ),
+      //                 ),
+      //                 Center(
+      //                   child: SizedBox(
+      //                     height: 35,
+      //                     width: 35,
+      //                     child: CircularProgressIndicator(
+      //                       value: down.progress == 1 ? null : down.progress,
+      //                     ),
+      //                   ),
+      //                 ),
+      //                 Center(
+      //                   child: SizedBox(
+      //                     height: 30,
+      //                     width: 30,
+      //                     child: CircularProgressIndicator(
+      //                       value: done / widget.data.length,
+      //                     ),
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      // ),
     );
   }
 }

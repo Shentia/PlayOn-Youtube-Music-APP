@@ -87,13 +87,13 @@ class _LibraryPageState extends State<LibraryPage> {
             );
           },
         ),
-        LibraryTile(
-          title: AppLocalizations.of(context)!.downs,
-          icon: Icons.download_done_rounded,
-          onTap: () {
-            Navigator.pushNamed(context, '/downloads');
-          },
-        ),
+        // LibraryTile(
+        //   title: AppLocalizations.of(context)!.downs,
+        //   icon: Icons.download_done_rounded,
+        //   onTap: () {
+        //     Navigator.pushNamed(context, '/downloads');
+        //   },
+        // ),
         LibraryTile(
           title: AppLocalizations.of(context)!.playlists,
           icon: Icons.playlist_play_rounded,

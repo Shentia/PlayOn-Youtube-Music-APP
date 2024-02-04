@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ca.playonworld">
+    package="ca.playon.android">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,7 +13,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="PlayOn"
+        android:label="Playon"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
         
@@ -22,7 +22,7 @@
             android:resource="@xml/automotive_app_desc" />
         
         <receiver
-            android:name=".PlayOnMusicWidget"
+            android:name=".PlayonMusicWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -30,7 +30,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/play_on_music_widget_info" />
+                android:resource="@xml/black_hole_music_widget_info" />
         </receiver>
 
         <activity
@@ -42,7 +42,12 @@
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
 
-            
+            <!--
+                 Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI.
+            -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
@@ -77,7 +82,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="playon" />
+                <data android:scheme="Playon" />
             </intent-filter>
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
@@ -86,7 +91,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="playon"
+                    android:host="Playon"
                     android:pathPrefix="/play"
                     android:scheme="app" />
             </intent-filter>

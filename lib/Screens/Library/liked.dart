@@ -365,9 +365,9 @@ class _LikedSongsState extends State<LikedSongs>
                 Tab(
                   text: AppLocalizations.of(context)!.artists,
                 ),
-                Tab(
-                  text: AppLocalizations.of(context)!.genres,
-                ),
+                // Tab(
+                //   text: AppLocalizations.of(context)!.genres,
+                // ),
               ],
             ),
             actions: [
@@ -588,13 +588,13 @@ class _LikedSongsState extends State<LikedSongs>
                       playlistName: widget.playlistName,
                       sortedAlbumKeysList: _sortedArtistKeysList,
                     ),
-                    AlbumsTab(
-                      albums: _genres,
-                      type: 'genre',
-                      offline: false,
-                      playlistName: widget.playlistName,
-                      sortedAlbumKeysList: _sortedGenreKeysList,
-                    ),
+                    // AlbumsTab(
+                    //   albums: _genres,
+                    //   type: 'genre',
+                    //   offline: false,
+                    //   playlistName: widget.playlistName,
+                    //   sortedAlbumKeysList: _sortedGenreKeysList,
+                    // ),
                   ],
                 ),
           floatingActionButton: ValueListenableBuilder(
@@ -679,12 +679,12 @@ class _SongsTabState extends State<SongsTab>
         ? emptyScreen(
             context,
             3,
-            AppLocalizations.of(context)!.nothingTo,
+            AppLocalizations.of(context)!.favTo,
             15.0,
-            AppLocalizations.of(context)!.showHere,
-            50,
-            AppLocalizations.of(context)!.addSomething,
-            23.0,
+            AppLocalizations.of(context)!.showHere2,
+            35,
+            AppLocalizations.of(context)!.addSomething2,
+            40.0,
           )
         : Column(
             children: [
@@ -839,12 +839,12 @@ class _AlbumsTabState extends State<AlbumsTab>
         ? emptyScreen(
             context,
             3,
-            AppLocalizations.of(context)!.nothingTo,
+            AppLocalizations.of(context)!.favTo,
             15.0,
-            AppLocalizations.of(context)!.showHere,
-            50,
-            AppLocalizations.of(context)!.addSomething,
-            23.0,
+            AppLocalizations.of(context)!.showHere2,
+            35,
+            AppLocalizations.of(context)!.addSomething2,
+            40.0,
           )
         : ListView.builder(
             physics: const BouncingScrollPhysics(),

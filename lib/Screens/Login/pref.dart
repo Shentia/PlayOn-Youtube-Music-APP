@@ -106,7 +106,7 @@ class _PrefScreenState extends State<PrefScreen> {
                                       '${AppLocalizations.of(context)!.welcome}\n',
                                   style: TextStyle(
                                     fontSize: 46.sp,
-                                    height: 1.0,
+                                    height: 1.30,
                                     fontWeight: FontWeight.bold,
                                     color:
                                         Theme.of(context).colorScheme.secondary,
@@ -114,18 +114,19 @@ class _PrefScreenState extends State<PrefScreen> {
                                   children: <TextSpan>[
                                     TextSpan(
                                       text:
-                                          AppLocalizations.of(context)!.aboard,
+                                          '${AppLocalizations.of(context)!.aboard}\n',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 52.sp,
+                                        fontSize: 25.sp,
                                         color: Colors.white,
                                       ),
                                     ),
                                     TextSpan(
-                                      text: '!\n',
+                                      text:
+                                          AppLocalizations.of(context)!.aboard2,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 54.sp,
+                                        fontSize: 25.sp,
                                         color: Theme.of(context)
                                             .colorScheme
                                             .secondary,

@@ -60,12 +60,12 @@ class _RecentlyPlayedState extends State<RecentlyPlayed> {
             ? emptyScreen(
                 context,
                 3,
-                AppLocalizations.of(context)!.nothingTo,
-                15,
-                AppLocalizations.of(context)!.showHere,
-                50.0,
-                AppLocalizations.of(context)!.playSomething,
-                23.0,
+                AppLocalizations.of(context)!.favTo,
+                15.0,
+                AppLocalizations.of(context)!.showHere2,
+                35,
+                AppLocalizations.of(context)!.addSomething2,
+                40.0,
               )
             : ListView.builder(
                 physics: const BouncingScrollPhysics(),

@@ -53,11 +53,11 @@ class _NowPlayingState extends State<NowPlaying> {
                     context,
                     3,
                     AppLocalizations.of(context)!.nothingIs,
-                    18.0,
+                    15.0,
                     AppLocalizations.of(context)!.playingCap,
-                    60,
+                    30,
                     AppLocalizations.of(context)!.playSomething,
-                    23.0,
+                    60.0,
                   )
                 : StreamBuilder<MediaItem?>(
                     stream: audioHandler.mediaItem,

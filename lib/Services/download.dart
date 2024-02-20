@@ -7,7 +7,6 @@ import 'dart:io';
 
 import 'package:audiotagger/audiotagger.dart';
 import 'package:audiotagger/models/tag.dart';
-import 'package:Playon/CustomWidgets/snackbar.dart';
 import 'package:Playon/Helpers/lyrics.dart';
 import 'package:Playon/Services/ext_storage_provider.dart';
 import 'package:Playon/Services/youtube_services.dart';
@@ -144,7 +143,7 @@ class Download with ChangeNotifier {
           case 0:
             lastDownloadId = data['id'].toString();
           case 1:
-            downloadSong(context, dlPath, filename, data);
+            downloadSong(dlPath, filename, data);
           case 2:
             while (await File('$dlPath/$filename').exists()) {
               filename = filename.replaceAll('.m4a', ' (1).m4a');
@@ -240,7 +239,7 @@ class Download with ChangeNotifier {
                             onPressed: () async {
                               Navigator.pop(context);
                               Hive.box('downloads').delete(data['id']);
-                              downloadSong(context, dlPath, filename, data);
+                              downloadSong(dlPath, filename, data);
                               rememberOption = 1;
                             },
                             child:
@@ -260,7 +259,7 @@ class Download with ChangeNotifier {
                                     filename.replaceAll('.m4a', ' (1).m4a');
                               }
                               rememberOption = 2;
-                              downloadSong(context, dlPath, filename, data);
+                              downloadSong(dlPath, filename, data);
                             },
                             child: Text(
                               AppLocalizations.of(context)!.yes,
@@ -285,12 +284,11 @@ class Download with ChangeNotifier {
         );
       }
     } else {
-      downloadSong(context, dlPath, filename, data);
+      downloadSong(dlPath, filename, data);
     }
   }
 
   Future<void> downloadSong(
-    BuildContext context,
     String? dlPath,
     String fileName,
     Map data,
@@ -419,7 +417,9 @@ class Download with ChangeNotifier {
             final Map res = await Lyrics.getLyrics(
               id: data['id'].toString(),
               title: data['title'].toString(),
-              artist: data['artist'].toString(),
+              artist: data['artist']?.toString() ?? '',
+              album: data['album']?.toString() ?? '',
+              duration: data['duration']?.toString() ?? '180',
               saavnHas: data['has_lyrics'] == 'true',
             );
             lyrics = res['lyrics'].toString();
@@ -482,7 +482,7 @@ class Download with ChangeNotifier {
               genre: data['language'].toString(),
               year: data['year'].toString(),
               lyrics: lyrics,
-              comment: 'PlayOn',
+              comment: 'BlackHole',
             );
             Logger.root.info('Started tag editing');
             final tagger = Audiotagger();
@@ -501,6 +501,7 @@ class Download with ChangeNotifier {
         } else {
           // Set metadata to file
           if (data['language'].toString() == 'YouTube') {
+            Logger.root.info('Started tag editing');
             // skipping metadata for saavn for the time being as it corrupts the file
             await MetadataGod.writeMetadata(
               file: filepath!,
@@ -512,9 +513,11 @@ class Download with ChangeNotifier {
                     '',
                 album: data['album'].toString(),
                 genre: data['language'].toString(),
-                year: int.parse(data['year'].toString()),
+                year: ['', 'null'].contains(data['year'].toString())
+                    ? null
+                    : int.parse(data['year'].toString()),
                 // lyrics: lyrics,
-                // comment: 'PlayOn',
+                // comment: 'BlackHole',
                 // trackNumber: 1,
                 // trackTotal: 12,
                 // discNumber: 1,
@@ -560,11 +563,11 @@ class Download with ChangeNotifier {
         };
         Hive.box('downloads').put(songData['id'].toString(), songData);
 
-        Logger.root.info('Everything done, showing snackbar');
-        ShowSnackBar().showSnackBar(
-          context,
-          '"${data['title']}" ${AppLocalizations.of(context)!.downed}',
-        );
+        Logger.root.info('Everything Done!');
+        // ShowSnackBar().showSnackBar(
+        //   context,
+        //   '"${data['title']}" ${AppLocalizations.of(context)!.downed}',
+        // );
       } else {
         download = true;
         progress = 0.0;

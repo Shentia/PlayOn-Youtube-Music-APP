@@ -20,8 +20,6 @@ import 'package:Playon/Screens/Home/home_screen.dart';
 import 'package:Playon/Screens/Library/library.dart';
 import 'package:Playon/Screens/Library/nowplaying.dart';
 import 'package:Playon/Screens/Library/playlists.dart';
-import 'package:Playon/Screens/LocalMusic/downed_songs.dart';
-import 'package:Playon/Screens/LocalMusic/downed_songs_desktop.dart';
 import 'package:Playon/Screens/Player/audioplayer.dart';
 import 'package:Playon/Screens/Settings/new_settings_page.dart';
 import 'package:Playon/Services/ext_storage_provider.dart';

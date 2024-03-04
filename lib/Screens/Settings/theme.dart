@@ -1,4 +1,3 @@
-import 'package:Playon/CustomWidgets/box_switch_tile.dart';
 import 'package:Playon/CustomWidgets/gradient_containers.dart';
 import 'package:Playon/CustomWidgets/popup.dart';
 import 'package:Playon/CustomWidgets/snackbar.dart';
@@ -140,7 +139,7 @@ class _ThemePageState extends State<ThemePage> {
                   builder: (BuildContext context) {
                     final List<String> colors = [
                       'White',
-                      // 'Deep Purple',
+                      'Deep Purple',
                       // 'Indigo',
                       'Red',
                       'Blue',
@@ -785,7 +784,7 @@ class _ThemePageState extends State<ThemePage> {
                             : selectedTheme['cardColor'] as String;
 
                         themeColor = themeChoice == deflt
-                            ? 'Red'
+                            ? 'Deep Purple'
                             : selectedTheme['accentColor'] as String;
                         colorHue = themeChoice == deflt
                             ? 400

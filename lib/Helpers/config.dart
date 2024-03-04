@@ -13,8 +13,8 @@ class MyTheme with ChangeNotifier {
   bool _useSystemTheme =
       Hive.box('settings').get('useSystemTheme', defaultValue: false) as bool;
 
-  String accentColor =
-      Hive.box('settings').get('themeColor', defaultValue: 'Red') as String;
+  String accentColor = Hive.box('settings')
+      .get('themeColor', defaultValue: 'Deep Purple') as String;
   String canvasColor =
       Hive.box('settings').get('canvasColor', defaultValue: 'Grey') as String;
   String cardColor =
@@ -126,7 +126,8 @@ class MyTheme with ChangeNotifier {
     _useSystemTheme =
         settingsBox.get('useSystemTheme', defaultValue: false) as bool;
 
-    accentColor = settingsBox.get('themeColor', defaultValue: 'Red') as String;
+    accentColor =
+        settingsBox.get('themeColor', defaultValue: 'Deep Purple') as String;
     canvasColor =
         settingsBox.get('canvasColor', defaultValue: 'Grey') as String;
     cardColor = settingsBox.get('cardColor', defaultValue: 'Grey900') as String;

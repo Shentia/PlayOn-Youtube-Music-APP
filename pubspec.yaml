@@ -34,7 +34,11 @@ dependencies:
   # flutter_downloader: ^1.7.1
   flutter_localizations:
     sdk: flutter
-  flutter_lyric: ^2.0.4+6
+  # flutter_lyric: ^2.0.4+6
+  flutter_lyric:
+    git:
+      url: https://github.com/Sangwan5688/flutter_lyric
+      ref: 8cea262
   get_it: ^7.6.4
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -56,7 +60,7 @@ dependencies:
     git:
       url: https://github.com/Sangwan5688/PersistentBottomNavBar
       ref: ecdadb0
-  receive_sharing_intent: ^1.4.5
+  receive_sharing_intent: ^1.6.7
   share_plus: ^7.0.2
   sizer: ^2.0.15
   sliding_up_panel: ^2.0.0+1

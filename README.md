@@ -89,11 +89,12 @@ www.playonworld.ca
 <tr>
 <td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/fc506b81-51ad-403d-b6f5-83d38521958c"></td>
 <td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/3b55e268-5231-494b-abdc-6db1509c6d2b"></td>
-<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/fc506b81-51ad-403d-b6f5-83d38521958c"></td>
+<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/9cf188a2-513e-4763-a43a-d83bb08cf8bd"></td>
+   
 </tr>
 <tr>
-<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/fc506b81-51ad-403d-b6f5-83d38521958c"></td>
-<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/fc506b81-51ad-403d-b6f5-83d38521958c"></td>
+<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/d0a72f44-b180-4ac4-8f60-c9b51e68879c"></td>
+<td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/18901222-38c8-46eb-bdad-b22aaf781e36"></td>
 <td><img src="https://github.com/Shentia/PlayonWorld/assets/19757691/57bb0c2e-1cec-4093-aea1-fb0a2e4d18c1"></td>
 </tr>
 

@@ -7,12 +7,6 @@ Website: www.playonworld.ca |
 E-mail: hello@playonworld.ca
 
 
-
-## SEO Marketing
-- [@Amin Foroutan](https://www.linkedin.com/in/ma-foroutan/)
-## Developer
-- [@Ahmadreza Shamimi](https://www.linkedin.com/in/ahmadreza-shamimi/)
-
 ## License
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
